@@ -15,7 +15,7 @@ process fastqc {
 
     script:
     """
-    /usr/local/bioinff/bin/fastqc ${fastq}
+    fastqc ${fast}
     """
 }
 
