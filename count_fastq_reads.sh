@@ -7,4 +7,10 @@
 
 FASTQ_FILE=$1
 
-cat "$FASTQ_FILE" | grep  "^@" | wc -l 
+if [[ $FASTQ_FILE =~ \.gz$ ]]; then
+    COMMAND=zcat
+else
+    COMMAND=cat
+fi
+
+$COMMAND "$FASTQ_FILE" | grep  "^@" | wc -l 
